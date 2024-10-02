@@ -1,0 +1,22 @@
+/folke/which-key.nvim
+/folke/trouble.nvim
+/folke/tokyonight.nvim recreate tokyonight with rose-pine colors
+'tylerbrazier/vim-bracepair' going to live without this one for a while and see how that feels
+
+todo list
+lsp zero look into it
+
+done
+
+colorscheme.lua
+rose-pine
+tokyonight
+
+textEdit.lua
+vim-commentary
+undotree 
+toggleterm
+harpoon 
+treesitter
+telescope (look at optional dependencies, set mappings, potentially move to separate plugin file)
+plenary (write some small piece of code with these functions)
