@@ -1,39 +1,39 @@
 -- config is based on https://www.reddit.com/r/neovim/comments/1039iti/minimal_config_with_lazy_treesitter_lspzero/;
 return {
-	{
-		"nvim-treesitter/nvim-treesitter",
-		build = ":TSUpdate",
-		lazy = vim.fn.argc(-1) == 0, -- load treesitter early when opening a file from cmdline
-		config = function()
-			require("nvim-treesitter.configs").setup({
-				ensure_installed = {
-					"cpp",
-					"gdscript",
-					"godot_resource",
-					"gdshader",
-					"bash",
-					"c",
-					"cpp",
-					"html",
-					"json",
-					"lua",
-					"markdown",
-					"markdown_inline",
-					"nix",
-					"python",
-					"ruby",
-					"vimdoc",
-				},
-				highlight = { enable = true },
-				indent = { enable = true },
-				-- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-				-- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-				-- Using this option may slow down your editor, and you may see some duplicate highlights.
-				-- Instead of true it can also be a list of languages
-				additional_vim_regex_highlighting = false,
-			})
-		end,
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    lazy = vim.fn.argc(-1) == 0, -- load treesitter early when opening a file from cmdline
+    config = function()
+      require("nvim-treesitter.configs").setup({
+	ensure_installed = {
+	  "cpp",
+	  "gdscript",
+	  "godot_resource",
+	  "gdshader",
+	  "bash",
+	  "c",
+	  "cpp",
+	  "html",
+	  "json",
+	  "lua",
+	  "markdown",
+	  "markdown_inline",
+	  "nix",
+	  "python",
+	  "ruby",
+	  "vimdoc",
 	},
+	highlight = { enable = true },
+	indent = { enable = true },
+	-- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+	-- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+	-- Using this option may slow down your editor, and you may see some duplicate highlights.
+	-- Instead of true it can also be a list of languages
+	additional_vim_regex_highlighting = false,
+      })
+    end,
+  },
 }
 --init = function(plugin)
 ---- PERF: add nvim-treesitter queries to the rtp and it's custom query predicates early

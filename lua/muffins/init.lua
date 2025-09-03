@@ -1,7 +1,11 @@
+-- local lspconfig = require("lspconfig")
+
 require("muffins.set")
 require("muffins.remap")
 require("muffins.lazy")
 require("muffins.autoCmd")
+require("user_functions.tasks")
+require("user_functions.global")
 
 -- -- -- require("lspconfig").clangd.setup({})
 -- -- vim.lsp.enable("clangd")
@@ -35,7 +39,20 @@ require("lspconfig").clangd.setup({})
 require("lspconfig").gdscript.setup({})
 require("lspconfig").markdown_oxide.setup({})
 require("lspconfig")["hls"].setup({
-	filetypes = { "haskell", "lhaskell", "cabal" },
+  filetypes = { "haskell", "lhaskell", "cabal" },
 })
+require("lspconfig").ruby_lsp.setup({
+  init_options = {
+    formatter = 'standard',
+    linters = { 'standard' },
+    -- TODO: for rails lsp stuff
+    -- addonSettings = {
+    --   ["Ruby LSP Rails"] = {
+	-- enablePendingMigrationsPrompt = false,
+    --   },
+    -- },
+  },
+})
+
 require("nvim-highlight-colors").setup({})
 require("ccc").setup({})

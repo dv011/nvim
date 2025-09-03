@@ -5,7 +5,7 @@ local g = vim.g
 
 --maps leader key to space key
 g.mapleader = " "
-g.maplocalleader = " "
+g.maplocalleader = ","
 
 -- MISCELLANEOUS OPTIONS
 --change dir when switching files, buffers, etc
@@ -18,8 +18,14 @@ o.termguicolors = true
 o.updatetime = 50
 
 -- SAVE OPTIONS
-o.swapfile = false
+o.swapfile = true
+-- swap file location
+-- TODO: (dv011) change this to an enrionment variable later to be set in nix config
+-- setting an environment variable should make it easier to change the dir in
+-- one place and have the change work everywhere see how undodir it set
+o.directory = "/data/nvim/swap/"
 o.backup = false
+-- TODO: (dv011) change undodir to /data with an env variable
 o.undodir = os.getenv("HOME") .. "/.vim/undodir"
 o.undofile = true
 
@@ -47,8 +53,12 @@ o.softtabstop = 2
 --prevents long lines from wrapping visually, add line breaks for wrapping
 --instead
 o.wrap = false
+--
+-- BUG: this wrapmargin setting is not working and wrapping text to early for 
+--some reason
+--
 --wraps text after column 80
-o.wrapmargin = 80
+-- o.wrapmargin = 80
 
 --UI OPTIONS
 --sets color column so i will know when to start a new line
@@ -61,7 +71,7 @@ o.foldlevel = 99
 -- show current line number instead of zero
 o.number = true
 --set relativenumbers for quick up and down movement
-o.relativenumber = true
+-- o.relativenumber = true
 --keeps 8 next lines of code visible when scrolling up/down
 o.scrolloff = 8
 --set winbar to left adjusted "[+] path/to/file"
